@@ -1,0 +1,44 @@
+<app-header backButton="/inicio/main/profesor"></app-header>
+
+<ion-content>
+  <ion-card class="user-profile">
+    <ion-card-header>
+      <h4>Perfil del Usuario</h4>
+      <h6>{{user().name}}</h6>
+
+      <ion-avatar>
+        <img [src]="user()?.img">
+      </ion-avatar>
+
+      
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item lines="none" class="info-item">
+          <div>
+            <div class="info-label">Correo:</div>
+            <div>{{user().email}}</div>
+          </div>
+        </ion-item>
+        <ion-item lines="none" class="info-item">
+          <div>
+            <div class="info-label">Carrera:</div>
+            <div>{{user().carrera}}</div>
+          </div>
+        </ion-item>
+        <ion-item lines="none" class="logout-button">
+          <ion-button (click)="signDut()">
+            Cerrar sesión
+          </ion-button>
+          <ion-button (click)="takeImg()">
+            Cambiar foto
+          </ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+
+
+

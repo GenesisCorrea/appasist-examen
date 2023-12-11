@@ -1,0 +1,22 @@
+<app-header backButton="/profesor"></app-header>
+
+<!-- asistencia-profesor.page.html -->
+
+<ion-content>
+  <ion-list >
+    <ion-item *ngFor="let p of asistenciaa">
+      <ion-label></ion-label>
+      <ion-badge >Alumno: {{ p.alumno }}. Estado:{{ p.asistencia }} - {{ p.fecha }}</ion-badge>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-card>
+  <ion-card-content *ngIf="qrImageUrl">
+    <img [src]="qrImageUrl" alt="Código QR" style="max-width: 100%; height: auto;">
+  </ion-card-content>
+
+  <ion-card-header>
+    <ion-button (click)="GenerarQR()" expand="full">Generar Código QR</ion-button>
+  </ion-card-header>
+</ion-card>

@@ -1,0 +1,39 @@
+<app-header  backButton="/inicio/login"></app-header>
+
+<ion-content [fullscreen]="true">
+  <div class="d-flex-center">
+
+    <form [formGroup]="form" class="auth-form" (ngSubmit)="submit()" (Keypress.enter)="submit()">
+      <ion-card-title>¿Tienes problemas para Entrar?</ion-card-title>
+      <p>Te enviaremos un email para que puedas Restablecer tu Contraseña:</p>
+
+      <!--email-->
+    
+      <app-custom-imput 
+      autocomplete="email"
+      [control]="form.controls.email"
+      type="email"
+      label="Correo:"
+      ></app-custom-imput>
+
+      <div class="validators" *ngIf="form.controls.email.errors && form.controls.email.touched">
+
+        <div *ngIf="form.controls.email.errors?.['required']">El correo es requerido</div>
+        <div *ngIf="form.controls.email.errors?.['email']">Ingrese un correo valido</div>
+      </div>
+
+      <ion-button  color='warning' expand="block" mode="ios" class="submit" type="submit" [disabled]="form.invalid">
+        Enviar enlace de acceso
+      </ion-button>
+
+    </form>
+
+  </div>
+
+ 
+
+  
+
+  
+</ion-content>
+ 

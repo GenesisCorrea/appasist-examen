@@ -1,0 +1,18 @@
+<app-header perfilProfesorButton="profile-profesor"></app-header>
+
+<ion-content class="ion-padding">
+  <ion-card *ngFor="let carrera of carreras">
+    <ion-card-header>
+      {{ carrera.nombre }}
+    </ion-card-header>
+    <ion-card-content>
+      <p>Estudiantes Inscritos: {{ carrera.estudiantes }}</p>
+      <p>Porcentaje de Asistencia : {{ carrera.asistencia }}%</p>
+    </ion-card-content>
+    <ion-card-header>
+          <ion-button [routerLink]="['/asistencia-profesor']">
+              <ion-card-title style="font-size: 16px;">asistencia</ion-card-title>
+          </ion-button>
+      </ion-card-header>
+  </ion-card>
+</ion-content>

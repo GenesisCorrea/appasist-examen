@@ -3,14 +3,37 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    path: '',
+    redirectTo: 'inicio',
+    pathMatch: 'full',
+    
   },
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    path: 'inicio',
+    loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
   },
+  {
+    path: 'profile',
+    loadChildren: () => import('./pages/inicio/main/home/profile/profile.module').then(m => m.ProfilePageModule)
+  },
+  {
+    path: 'asistencia',
+    loadChildren: () => import('./pages/inicio/main/home/asistencia/asistencia.module').then( m => m.AsistenciaPageModule)
+  },
+  {
+    path: 'profesor',
+    loadChildren: () => import('./pages/inicio/main/profesor/profesor.module').then( m => m.ProfesorPageModule)
+  },
+  {
+    path: 'profile-profesor',
+    loadChildren: () => import('./pages/inicio/main/profesor/profile-profesor/profile-profesor.module').then( m => m.ProfileProfesorPageModule)
+  },
+  {
+    path: 'asistencia-profesor',
+    loadChildren: () => import('./pages/inicio/main/profesor/asistencia-profesor/asistencia-profesor.module').then( m => m.AsistenciaProfesorPageModule)
+  }
+  
+  
 ];
 
 @NgModule({
@@ -20,3 +43,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+

@@ -1,0 +1,25 @@
+<app-header backButton="/inicio/main/home" perfilButton="profile"></app-header>
+ 
+<ion-content>
+    <ion-list>
+      <ion-item >
+        <ion-label></ion-label>
+        <ion-badge slot="end" >
+
+          <ion-item >
+            <ion-label>{{ presentMessage }}</ion-label>
+          </ion-item>
+
+        </ion-badge>
+      </ion-item>
+
+      <ion-card-header>
+        <zxing-scanner *ngIf="isScannerActive" #scanner (scanSuccess)="handleBarcodeResult($event)"></zxing-scanner>
+        <ion-button *ngIf="!isScannerActive" (click)="startScanner()">Leer QR</ion-button>
+      </ion-card-header>
+      
+    </ion-list>
+</ion-content>
+
+
+
